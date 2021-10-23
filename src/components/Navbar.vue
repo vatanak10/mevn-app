@@ -10,18 +10,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav" style="margin-right: auto">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <ul class="navbar-nav" style="margin-right: auto">                
+                <li class="nav-item">                    
+                    <router-link to="/tasks" class="nav-link">Tasks</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tasks</a>
+                    <router-link to="/register" class="nav-link">Register</router-link>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                <li class="nav-item">                    
+                    <router-link to="/login" class="nav-link">Login</router-link>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Logout</a>
