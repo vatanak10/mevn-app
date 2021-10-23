@@ -50,6 +50,14 @@ div#custom-home {
     align-items: center;
 }
 
+form.custom-form{
+    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .btn-primary {
     background-color: #32aced !important;
 }
