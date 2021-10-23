@@ -6,6 +6,8 @@ import TasksAll from '../views/tasks/TasksAll.vue'
 import TasksCreate from '../views/tasks/TasksCreate.vue'
 import TasksEdit from '../views/tasks/TasksEdit.vue'
 
+const isLoggedIn = false;
+
 const routes = [
   {
     path: '/',
@@ -23,27 +25,67 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: Login
+    component: Login,
+    beforeEnter: (to, from, next) => {
+      // ...
+      if (!isLoggedIn) {
+        next();
+      } else {
+        next('/');
+      }
+    }
   },
   {
     path: '/register',
     name: 'register',
-    component: Register
+    component: Register,
+    beforeEnter: (to, from, next) => {
+      // ...
+      if (!isLoggedIn) {
+        next();
+      } else {
+        next('/');
+      }
+    }
   },
   {
     path: '/tasks',
     name: 'all-tasks',
-    component: TasksAll
+    component: TasksAll,
+    beforeEnter: (to, from, next) => {
+      // ...
+      if (isLoggedIn) {
+        next();
+      } else {
+        next('/login');
+      }
+    }
   },
   {
     path: '/tasks/new',
     name: 'create-task',
-    component: TasksCreate
+    component: TasksCreate,
+    beforeEnter: (to, from, next) => {
+      // ...
+      if (isLoggedIn) {
+        next();
+      } else {
+        next('/login');
+      }
+    }
   },
   {
     path: '/tasks/:id',
     name: 'edit-task',
-    component: TasksEdit
+    component: TasksEdit,
+    beforeEnter: (to, from, next) => {
+      // ...
+      if (isLoggedIn) {
+        next();
+      } else {
+        next('/login');
+      }
+    }
   }
 ]
 
@@ -52,5 +94,13 @@ const router = createRouter({
   routes,
   linkExactActiveClass: "exact-active"
 })
+
+// router.beforeEach((to, from, next) => {
+//   if (isLoggedIn) {
+//     next();
+//   } else {
+//     next('/login');
+//   }
+// })
 
 export default router

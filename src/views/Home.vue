@@ -12,6 +12,12 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
+  },
+  beforeEnter: (to, from, next) => {
+    // ...
+    // Get data from server
+    // http.get(IsLoggedIn);
+    next();
   }
 }
 </script>
