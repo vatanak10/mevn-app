@@ -2,10 +2,10 @@
     <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top custom-bg-dark">
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <router-link to="/" class="navbar-brand">
             <img alt="Vue logo" src="../assets/logo.png" style="max-height:25px"> 
             Task Manager
-        </a>
+        </router-link>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
