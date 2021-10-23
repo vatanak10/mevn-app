@@ -1,10 +1,8 @@
 <template>
-  <div id="nav">
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> -->
-    <Navbar/>
+  <Navbar/>
+  <div id="app-container">
+    <router-view/>
   </div>
-  <router-view/>
 </template>
 
 <script>

@@ -1,8 +1,36 @@
+* {
+    color: #fff;
+}
+
 .custom-bg-dark {
     background-color: #373f46 !important;
 }
 
-#app {
+nav.navbar {
+    height: 6rem;
+}
+
+a.navbar-brand {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+li.nav-item a {
+    text-transform: uppercase;
+}
+
+div#app-container {
+    position: fixed;
+    top: 96px;
+    left: 0;
+    bottom: 96px;
+    width: 100%;
+    padding: 2rem;
+    background-color: #1d2733;
+    overflow: auto;   
+}
+
+/* #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -21,4 +49,16 @@ color: #2c3e50;
 
 #nav a.router-link-exact-active {
 color: #42b983;
+} */
+
+@media screen and (max-width: 767px) {
+    div#navbarCollapse {
+        width: 100%;
+        position: fixed;
+        top: 75px;
+        left: 0;
+        padding-left: 20px;
+        padding-bottom: 5px;
+        background-color: #373f46;
+    }
 }
