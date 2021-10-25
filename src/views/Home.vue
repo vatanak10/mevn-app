@@ -13,11 +13,12 @@ export default {
   components: {
     HelloWorld
   },
-  beforeEnter: (to, from, next) => {
-    // ...
-    // Get data from server
-    // http.get(IsLoggedIn);
-    next();
+  beforeCreate: function() {
+    fetch(this.$store.state.apiUrl + '/api/user', {
+      method: 'GET'
+    })
+    .then(res => res.json())
+    .then(res => console.log(res));
   }
 }
 </script>
