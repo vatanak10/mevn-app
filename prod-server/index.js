@@ -4,12 +4,15 @@ var _routes = require('./routes');
 
 var _env = require('./config/env');
 
+var _db = require('./config/db');
+
 var express = require('express');
 var app = express();
 var port = 3000;
 
 
 (0, _env.setEnvironment)(app);
+(0, _db.connectToDB)();
 (0, _routes.registerRoutes)(app);
 
 app.get('/', function (req, res) {

@@ -10,25 +10,25 @@ exports.remove = remove;
 exports.show = show;
 function index(req, res) {
     // find all tasks
-    return res.json();
+    return res.status(200).json();
 }
 
 function create(req, res) {
     // create new task
-    return res.json();
+    return res.status(201).json();
 }
 
 function update(req, res) {
     // update task
-    return res.json();
+    return res.status(204).json();
 }
 
 function remove(req, res) {
     // delete task
-    return res.json();
+    return res.status(204).json();
 }
 
 function show(req, res) {
     // get task by id
-    return res.json();
+    return res.status(200).json();
 }
