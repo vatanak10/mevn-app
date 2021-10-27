@@ -7,18 +7,36 @@ exports.index = index;
 
 var _stringUtil = require('../../utilities/string-util');
 
+var _userModel = require('../../model/user-model');
+
+var _userModel2 = _interopRequireDefault(_userModel);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function index(req, res) {
     var validation = validateIndex(req.body);
     if (!validation.isValid) {
         return res.status(400).json({ message: validation.message });
     }
 
-    var user = {
-        username: req.body.username.toLowerCase(),
-        password: req.body.password
-    };
-    console.log(user);
-    return res.status(201).json(); //using 201 when creating sth since this is register
+    var user = new _userModel2.default({
+        username: req.body.username,
+        password: req.body.password,
+        first: req.body.first,
+        last: req.body.last
+    });
+    user.save(function (error) {
+        if (error) {
+            if (error.code === 11000) {
+                return res.status(403).json({ message: 'Username is already taken' });
+            }
+            return res.status(500).json();
+        }
+        return res.status(201).json();
+    });
+
+    // console.log(user);
+    // return res.status(201).json(); //using 201 when creating sth since this is register
 }
 
 function validateIndex(body) {
@@ -28,6 +46,12 @@ function validateIndex(body) {
     }
     if (_stringUtil.StringUtil.isEmpty(body.password)) {
         errors += 'Password is required. ';
+    }
+    if (_stringUtil.StringUtil.isEmpty(body.first)) {
+        errors += 'First Name is required. ';
+    }
+    if (_stringUtil.StringUtil.isEmpty(body.last)) {
+        errors += 'Last Name is required. ';
     }
 
     return {
