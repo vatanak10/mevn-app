@@ -1,15 +1,17 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.index = index;
 
-var _stringUtil = require('../../utilities/string-util');
+var _stringUtil = require("../../utilities/string-util");
 
-var _userModel = require('../../model/user-model');
+var _userModel = require("../../model/user-model");
 
 var _userModel2 = _interopRequireDefault(_userModel);
+
+var _authService = require("../../services/auth-service");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30,8 +32,9 @@ function index(req, res) {
         if (!passwordMatch) {
             return res.status(401).json();
         }
+        var token = (0, _authService.generateJWT)(user);
+        return res.status(200).json({ token: token });
     });
-    return res.status(200).json();
 }
 
 function validateIndex(body) {
