@@ -5,5 +5,8 @@ import router from './router'
 import store from './store'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap'
+// import BootstrapVue from 'bootstrap-vue'
+
+// Vue.config.productionTip = process.env.NODE_ENV === 'production';
 
 createApp(App).use(router).use(store).use(router).mount('#app')
